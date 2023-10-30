@@ -19,6 +19,16 @@ public class Login extends AppCompatActivity {
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         Button loginButton = findViewById(R.id.loginButton);
+        Button registerButton = findViewById(R.id.registerButton);
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Redirige al usuario a la ventana de registro.
+                Intent intent = new Intent(Login.this, registro.class);
+                startActivity(intent);
+            }
+        });
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,9 +60,14 @@ public class Login extends AppCompatActivity {
 
     // Método para validar las credenciales
     private boolean isValidCredentials(String username, String password) {
-        // Aquí puedes implementar la lógica de validación, como verificar en una base de datos o en otro lugar.
-        // Este es un ejemplo que valida "samuel" como nombre de usuario y "0000" como contraseña.
-        return username.equals("samuel") && password.equals("0000");
+        // Obtén las credenciales almacenadas en las preferencias compartidas
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        String storedUsername = sharedPreferences.getString("username", "");
+        String storedPassword = sharedPreferences.getString("password", "");
+
+        // Verifica si las credenciales coinciden con las almacenadas en las preferencias compartidas
+        return username.equals(storedUsername) && password.equals(storedPassword);
     }
+
 }
 

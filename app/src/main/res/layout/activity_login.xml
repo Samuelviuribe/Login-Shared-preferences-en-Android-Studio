@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/usernameEditText"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="34dp"
         android:hint="Contraseña" />
 
     <Button
@@ -26,7 +26,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/passwordEditText"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="34dp"
         android:background="#0C0C0C"
         android:text="Iniciar Sesión" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordEditText"
+        android:layout_marginTop="100dp"
+        android:background="#0C0C0C"
+        android:text="Registrar Usuario" />
+
+
 </RelativeLayout>
